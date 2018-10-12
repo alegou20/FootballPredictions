@@ -1,48 +1,78 @@
 <template>
-  <div class="hello">
-    <img src="./../assets/spring-boot-vuejs-logo.png">
-    <h1>{{ hellomsg }}</h1>
-    <h2>Sswdfvgbhnjmk,dfvgbhnj </h2>
-    <ul>
-      <li><a href="https://github.com/jonashackt/spring-boot-vuejs" target="_blank">github.com/jonashackt/spring-boot-vuejs</a></li>
-    </ul>
-    <h3>This site contains more stuff :)</h3>
-    <ul>
-      <li>HowTo call REST-Services:</li>
-      <li><router-link :to="{ name: 'Service' }" exact target="_blank">/callservice</router-link></li>
-      <li>HowTo to play around with Bootstrap UI components:</li>
-      <li><router-link :to="{ name: 'Bootstrap' }" exact target="_blank">/bootstrap</router-link></li>
-      <li>HowTo to interact with the Spring Boot database backend:</li>
-      <li><router-link :to="{ name: 'User' }" exact target="_blank">/user</router-link></li>
-    </ul>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+            :clipped="$vuetify.breakpoint.lgAndUp"
+            v-model="sideNav"
+            fixed
+            app
+    >
+      <v-list>
+        <v-list-tile>
+          <v-list-tile-action>
+            <flag iso="gb" />
+          </v-list-tile-action>
+          <v-list-tile-content>Premier League</v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-action>
+            <flag iso="de" />
+          </v-list-tile-action>
+          <v-list-tile-content>Bundesliga</v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-action>
+            <flag iso="it" />
+          </v-list-tile-action>
+          <v-list-tile-content>Serie A</v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>
+          <v-list-tile-action>
+            <flag iso="es" />
+          </v-list-tile-action>
+          <v-list-tile-content>La Liga</v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list-tile>
+        <v-list-tile-action>
+          <flag iso="nl" />
+        </v-list-tile-action>
+        <v-list-tile-content>Eredivisie</v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile>
+        <v-list-tile-action>
+          <flag iso="it" />
+        </v-list-tile-action>
+        <v-list-tile-content>Champions League</v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile>
+        <v-list-tile-action>
+          <flag iso="it" />
+        </v-list-tile-action>
+        <v-list-tile-content>Europa League</v-list-tile-content>
+      </v-list-tile>
+    </v-navigation-drawer>
+    <v-toolbar
+            :clipped-left="$vuetify.breakpoint.lgAndUp"
+            color="green darken-3"
+            dark
+            app
+            fixed
+    >
+      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+        <v-toolbar-side-icon @click.stop="sideNav = !sideNav"></v-toolbar-side-icon>
+        <span class="hidden-sm-and-down">Football Predictions</span>
+      </v-toolbar-title>
+    </v-toolbar>
+  </v-app>
 </template>
 
 <script>
+
     export default {
-        name: 'hello',
-        props: { hellomsg: { type: String, required: true } }
+        data () {
+            return {
+                sideNav: false
+            }
+        }
     }
-
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
-</style>
