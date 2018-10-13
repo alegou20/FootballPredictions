@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Service from '@/components/Service'
-import Bootstrap from '@/components/Bootstrap'
-import User from '@/components/User'
+import Home from '@/components/Home'
+import Profile from '@/components/User/Profile'
+import SignIn from '@/components/User/SignIn'
+import SignUp from '@/components/User/SignUp'
+import Standings from '@/components/League/Standings'
 
 Vue.use(Router)
 
@@ -11,23 +12,28 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Home',
+      component: Home
     },
     {
-      path: '/callservice',
-      name: 'Service',
-      component: Service
+      path: '/profile',
+      name: 'Profile',
+      component: Profile
     },
     {
-      path: '/bootstrap',
-      name: 'Bootstrap',
-      component: Bootstrap
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn
     },
     {
-      path: '/user',
-      name: 'User',
-      component: User
-    }
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
+    },
+      {
+          path: '/standings',
+          name: 'Standings',
+          component: Standings
+      }
   ]
 })
